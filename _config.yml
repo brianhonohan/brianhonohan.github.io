@@ -1,0 +1,10 @@
+# Site settings
+title: Brian Honohan
+description: > 
+  Personal site of Brian Honohan, a Brooklyn based software engineer.
+baseurl: ""
+twitter_username: brianhonohan
+github_username:  brianhonohan
+
+# Build settings
+markdown: kramdown
