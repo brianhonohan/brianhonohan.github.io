@@ -5,6 +5,7 @@ description: >
 baseurl: ""
 twitter_username: brianhonohan
 github_username:  brianhonohan
+flickr_username:  brian-honohan
 
 # Build settings
 markdown: kramdown
