@@ -1,0 +1,37 @@
+.img-thumbnail {
+  width: 150px
+}
+
+.listing-thumbnail {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.util-clear {
+  clear: both;
+}
+
+#menu {
+  margin: 4px;
+  line-height: 48px;
+}
+
+#toggle-menu {
+  @include media-query($on-palm) {
+    font-size: 26px;
+    padding: 0em 1em;
+  }
+}
+
+.layout-minimal {
+  #toggle-menu {
+    @include media-query($on-palm) {
+      padding: 0.6em 0.6em;
+    }
+  }
+
+  #menu {
+    margin: 0px;
+    line-height: 0px;
+  }
+}
