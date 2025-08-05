@@ -4,18 +4,34 @@ layout: default
 
 <div class="home">
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  {%- if site.data.featured_sketches.size > 0 -%}
+  <div class="section">
+    <h2 class="section-heading">Featured Sketches </h2>
+    <div class="thumbnail-grid">
+      {% assign item_limit = 4 %}
+      {%- for sketch in site.data.featured_sketches limit: item_limit -%}
+      <div class="thumbnail"><a class="post-link" href="{{ sketch.path }}">
+        <img src="{{ sketch.path }}screenshot-01.png" class="img-thumbnail" />
+      </a></div>
+      {%- endfor -%}
+    </div>
+  </div>
+  {%- endif -%}
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+  {%- if site.posts.size > 0 -%}
+  <div class="section">
+    <h2 class="section-heading">Posts</h2>
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h3>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {%- endif -%}
 
 </div>
