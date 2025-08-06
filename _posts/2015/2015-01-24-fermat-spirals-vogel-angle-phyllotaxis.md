@@ -2,7 +2,8 @@
 layout: post
 title:  "Processing - Exploring Fermat's Spiral and Vogel's Model using the Golden Angle"
 date:   2015-01-24 12:00:00 -0400
-categories: [processing]
+categories: [posts,sketchbook]
+tags: [processing]
 thumbnail: /sketchbook/processing/spirals/screenshot-01.png
 excerpt: This is a Processing sketch inspired by the Fermat spiral; which is closely related to the arrangement of sunflower seeds (phyllotaxis).
 
