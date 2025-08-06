@@ -4,10 +4,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    {% if page.excerpt %}
+    <meta name="description" content="{{ page.excerpt }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}screenshot-01.png">
+    {% else %}
     <meta name="description" content="{{ site.description }}">
+    <meta property="og:image" content="https://brianhonohan.com/sketchbook/assets/images/default_og_image.png">
+    {% endif %}
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:site_name" content="BrianHonohan.com">
+    <meta property="og:type" content="website">
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    
+    {% for css_file in page.css_files %}<link rel="stylesheet" href="{{ css_file }}">
+    {% endfor %}
+    {% for js in page.js_scripts %}<script src="{{ js }}" charset="utf-8"></script>
+    {% endfor %}
+    {% if page.js_modules %}
+        {% for module in page.js_modules %}
+            {% if module.exports_to_import %}
+    <script type="module" charset="utf-8">
+        import { {{ module.exports_to_import | join: ', ' }} } from "{{ module.from_path }}";
+        {% for exp in module.exports_to_import %}window.{{ exp }} = {{ exp }};
+        {% endfor %}
+    </script>
+            {% elsif module.from_path %}
+    <script type="module" src="{{ module.from_path }}" charset="utf-8"></script>
+            {% else %}
+    <script type="module" src="{{ module }}" charset="utf-8"></script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
