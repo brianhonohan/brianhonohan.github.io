@@ -100,6 +100,11 @@
   border-bottom: 2px solid #e8e8e8;
   padding-bottom: 5px;
 }
+@media (prefers-color-scheme: dark) {
+  .section-heading {
+    border-color: #444;
+  }
+}
 
 .thumbnail-grid {
   display: grid;
@@ -117,6 +122,11 @@
   font-size: 1rem;
   border-radius: 5px;
   overflow: hidden;
+}
+@media (prefers-color-scheme: dark) {
+  .thumbnail {
+    background-color: #333;
+  }
 }
 
 .thumbnail img {

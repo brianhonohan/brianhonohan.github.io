@@ -3,6 +3,7 @@ layout: post
 title:  "Learn. Create. Teach."
 date:   2015-01-11 20:02:00
 categories: posts
+excerpt: I'm redoubling my efforts to live by a pseudo-mantra that I thought of a few years ago.
 ---
 I'm redoubling my efforts to live by a pseudo-mantra that I thought of a few years ago.
 

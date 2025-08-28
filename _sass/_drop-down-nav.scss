@@ -44,12 +44,21 @@
 #menu a {
   position: relative;
   display: block;
-  color: #111;
+  color: $text-color;
 }
 
 #menu,
 #toggle-menu {
-  background-color: #fff;
+  background-color: $background-color;
+}
+@media (prefers-color-scheme: dark) {
+  #menu,
+  #toggle-menu {
+    background-color: $background-color-darktheme;
+  }
+  #menu a {
+    color: $text-color-darktheme;
+  }
 }
 
 #toggle-menu,
