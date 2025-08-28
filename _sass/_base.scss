@@ -25,7 +25,45 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+        color: $text-color-darktheme;
+        background-color: $background-color-darktheme;
+    }
 
+    a {
+        color: lighten($brand-color, 20%);
+
+        &:visited {
+            color: lighten(darken($brand-color, 15%), 20%);
+        }
+
+        &:hover {
+            color: $text-color-darktheme;
+        }
+    }
+
+    blockquote {
+        color: lighten($grey-color, 40%);
+        border-left: 4px solid lighten($grey-color-light, 40%);
+    }
+
+    pre,
+    code {
+        border: 1px solid lighten($grey-color-light, 40%);
+        background-color: #223344;
+    }
+
+    .icon {
+
+        > svg {
+
+            path {
+                fill: lighten($grey-color, 40%);
+            }
+        }
+    }
+}
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
